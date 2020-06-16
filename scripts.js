@@ -104,18 +104,32 @@ function renderTaskCtrlBar(tasks, taskIdx){
   if (taskIdx === 0) {
     upEl.disabled = true;
   }
-  upEl.innerText = "^";
+ 
   upEl.onclick = () => {
+    let t=tasks[taskIdx];
+        tasks[taskIdx]=tasks[taskIdx-1];
+        tasks[taskIdx-1]=t;
+        renderTaskItems();
 
   };
+  upEl.innerText = "↑";
   ctrlbarEl.append(upEl);
 
   let downEl = document.createElement("button");
-  downEl.innerText = "1";
-  downEl.onclick = () => {
-
-  };
+  downEl.innerText = "↓";
   ctrlbarEl.append(downEl);
+ 
+    downEl.onclick = () => {
+      let t=tasks[taskIdx];
+      tasks[taskIdx]=tasks[taskIdx+1];
+      tasks[taskIdx+1]=t;
+      renderTaskItems();
+    };
+
+  if(taskIdx===tasks.length-1)
+  {
+      downEl.disabled=true;
+  }
 
   let cancelEl = document.createElement("button");
   cancelEl.innerText = "X";
