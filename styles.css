@@ -3,6 +3,27 @@ body{
     display:  flex;
     justify-content: center;
 }
+
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 265px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h1 {
+    display: grid;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: -442px;
+    font-weight: bold;
+}
 .todo-panel{
     width: 40em;
     border: 1px solid rgb(16, 182, 38);
@@ -12,6 +33,7 @@ body{
 
     margin-top: 5em;
 }
+
 
 .todo-editor {
     padding: 5px 20px;
