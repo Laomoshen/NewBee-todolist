@@ -36,7 +36,7 @@ function renderEditor() {
     }
   };
 
-
+//
   let addEl = document.querySelector("#default-todo-panel .todo-editor > button");
   addEl.onclick = (e) => {
     addTask();
@@ -54,7 +54,7 @@ function renderTaskItems() {
 
   for (let i = 0; i < tasks.length; i++) {
     let task = tasks[i];
-    let itemEl = document.createElement("div");
+    let itemEl = document.createElement("div");    //添加div
     itemEl.className = "task";
 
     let doneEl = document.createElement("input");
@@ -78,6 +78,12 @@ function renderTaskItems() {
       }
 
     }
+  
+
+
+    ////////
+
+
     itemEl.append(doneEl);
 
     let titleEl = document.createElement("label");
@@ -91,6 +97,30 @@ function renderTaskItems() {
 
 
     itemsEl.append(itemEl);
+
+    let impEl = document.querySelectorAll(".ctrlbar input")[i];
+        impEl.checked = tasks.important;
+
+
+
+
+        if (tasks.important) {
+            itemEl.classList.add("good");
+        } else {
+            itemEl.classList.remove("good");
+        }
+        impEl.onchange = (e) => {
+            // console.log("checkbox: ",e);                                     //突出重点内容，变红，加粗
+
+            tasks.important = e.target.checked;
+            if (tasks.important) {
+                itemEl.classList.add("good");
+                
+            } else {
+                itemEl.classList.remove("good");
+            }       
+
+        };
   }
 }
 
@@ -131,6 +161,13 @@ function renderTaskCtrlBar(tasks, taskIdx){
       downEl.disabled=true;
   }
 
+  //重要程度按钮
+  let impEl = document.createElement("input");
+  impEl.type = "checkbox";
+  ctrlbarEl.append(impEl);
+//////
+
+
   let cancelEl = document.createElement("button");
   cancelEl.innerText = "X";
   cancelEl.onclick = () => {
@@ -145,4 +182,4 @@ function renderTaskCtrlBar(tasks, taskIdx){
 
 
 renderEditor();
-renderTaskItems();
+

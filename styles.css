@@ -51,6 +51,7 @@ img {
 
 
 
+
 .todo-editor input {
     flex-grow: 1;
     font-size: 1.5em;
@@ -99,4 +100,20 @@ img {
 
 .task.done > label{
     text-decoration: line-through;
+}
+
+
+
+.task.good .ctrlbar input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 2em;
+    height: 2em;
+    
+    background: url(滑稽.jpg);
+}
+.task.good > label{
+    color: red;
+    font-weight: bolder;
+   
 }
